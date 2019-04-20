@@ -32,11 +32,11 @@ Things you may want to cover:
 |name|string|index:true, null:false, unique:true|
 |email|string|null:false, unique:true|
 |password|text|null:false, unique:true|
-|encrypted_password|text|null:false|
 
 ### Association
-- has_many :groups
-- has_many :massages
+- has_many :messages
+- has_many :groups, through: :groups_users
+- has_many :groups_users
 <br>
 
 ##groupsテーブル
@@ -47,10 +47,11 @@ Things you may want to cover:
 
 ### Association
 - has_many :messages
-- has_many :users
+- has_many :users, through: :groups_users
+- has_mant :groups_users
 <br>
 
-## group_usersテーブル(中間テーブル)
+## groups_usersテーブル(中間テーブル)
 
 |Column|Type|Options|
 |------|----|-------|
