@@ -4,16 +4,16 @@
       = current_user.name
     %ul.user-menu
       %li.user-menu__edit
-        = link_to do
+        = link_to new_group_path do
           = fa_icon 'pencil-square-o', class: 'icon'
       %li.user-menu__cog
-        = link_to edit_user_path(current_user) do
+        = link_to edit_user_path(id: current_user) do
           = fa_icon 'cog', class: 'icon'
   .groups
-    .group
-      %p.group__group-name test-group1
-      %p.group__message まだメッセージがありません
-      %p.group__group-name test-group2
-      %p.group__message まだメッセージがありません
-      %p.group__group-name test-group3
-      %p.group__message まだメッセージがありません
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません
