@@ -8,20 +8,14 @@
           Member：test-user
       .main-header__edit-btn Edit
     .messages
-      .message1
-        %p.messages__user test-user
-        %p.messages__date 2019/xx/xx(d) h:m:s
-        %p.messages__text こんにちは！
-      .message2
-        %p.messages__user test-user
-        %p.messages__date 2019/xx/xx(d) h:m:s
-        %p.messages__text さようなら！
+      =render @messages
     .form
-      %form
-        %input.form__message{placeholder: " type a message"}
-        .form__icon
-          %label.form__icon__image
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'form__message', placeholder: ' type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
             = fa_icon 'picture-o', class: 'icon'
-        %input.form__submit-btn{value: 'Send', type: 'submit'}
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
  
