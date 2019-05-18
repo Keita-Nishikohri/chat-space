@@ -56,24 +56,24 @@
       box-sizing: border-box;
       height: 90px;
       padding: 20px 40px 20px 40px;
-      &__message {
+      .form__message {
         border: none;
         float: left;
         height: 50px;
         width: calc(100% - 150px);
       }
-      &__icon {
+        .icon {
         background-color: $color-white;
         float: left;
         height: 50px;
         padding-right: 10px;
-        &__image {
+        .hidden {
           font-size: 20px;
           line-height: 50px;
           cursor: pointer;
         }
       }
-      &__submit-btn {
+      &__submit {
         background-color: $color-blue;
         color: $color-white;
         float: right;
@@ -84,4 +84,4 @@
         cursor: pointer;
       }
     }
-}
+  }
